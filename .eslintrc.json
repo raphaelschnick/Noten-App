@@ -1,0 +1,31 @@
+{
+  "env": {
+      "browser": true,
+      "node": true,
+      "jest": true
+  },
+  "extends": [
+      "plugin:vue/recommended"
+  ],
+  "parserOptions": {
+      "parser": "babel-eslint",
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+  },
+  "overrides": [
+      {
+          "files": [
+              "**/__tests__/*.{j,t}s?(x)",
+              "**/tests/unit/**/*.spec.{j,t}s?(x)"
+          ],
+          "env": {
+              "jest": true
+          }
+      }
+  ],
+  "plugins": [
+      "vue"
+  ],
+  "rules": {
+  }
+}

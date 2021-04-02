@@ -11,17 +11,65 @@ const routes = [
     component: Home
   },
   {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
+    path: "/pieces",
+    name: "Pieces",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue")
+      import(/* webpackChunkName: "pieces" */ "../views/piece/Pieces.vue")
+  },
+  {
+    path: "/pieces/:id",
+    name: "PieceDetail",
+    component: () =>
+      import(/* webpackChunkName: "PieceDetail" */ "../views/piece/PieceDetail.vue"),
+    props: true
+  },
+  {
+    path: "/pieces/add",
+    name: "PieceAdd",
+    component: () =>
+      import(/* webpackChunkName: "pieces" */ "../views/piece/Add.vue")
+  },
+  {
+    path: "/instruments",
+    name: "Instruments",
+    component: () =>
+      import(/* webpackChunkName: "Instruments" */ "../views/instrument/Instruments.vue")
+  },
+  {
+    path: "/instruments/:id",
+    name: "InstrumentDetail",
+    component: () =>
+      import(/* webpackChunkName: "InstrumentDetail" */ "../views/instrument/InstrumentDetail.vue"),
+    props: true
+  },
+  {
+    path: "/instruments/add",
+    name: "InstrumentAdd",
+    component: () =>
+      import(/* webpackChunkName: "Instruments" */ "../views/instrument/Add.vue")
+  },
+  {
+    path: "/settings",
+    name: "Settings",
+    component: () =>
+      import(/* webpackChunkName: "Settings" */ "../views/Settings.vue")
+  },
+  {
+    path: "/account",
+    name: "Account",
+    component: () =>
+      import(/* webpackChunkName: "Account" */ "../views/Account.vue")
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () =>
+      import(/* webpackChunkName: "Login" */ "../views/Login.vue")
   }
 ];
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 });
 
