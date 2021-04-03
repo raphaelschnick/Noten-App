@@ -1,6 +1,27 @@
 <template>
   <b-card>
-    <b-card-title> {{ instrument.name }} </b-card-title>
+    <b-card-title>
+      {{ instrument.name }}
+      <b-dropdown
+        class="float-right"
+        variant="link"
+        toggle-class="text-decoration-none"
+        no-caret
+      >
+        <template #button-content>
+          <i
+            style="color: #312F2F"
+            class="fas fa-ellipsis-v"
+          />
+        </template>
+        <b-dropdown-item :to="{ name: 'InstrumentEdit', params: {id: instrument.id } }">
+          <i class="fas fa-edit" /> Bearbeiten
+        </b-dropdown-item>
+        <b-dropdown-item @click="remove">
+          <i class="fas fa-trash-alt" /> Löschen
+        </b-dropdown-item>
+      </b-dropdown>
+    </b-card-title>
     <b-button
       :to="{ name: 'InstrumentDetail', params: {id: instrument.id}}"
       variant="primary"
@@ -11,12 +32,18 @@
 </template>
 
 <script>
+import instrumentService from '@/services/instrument.service'
 export default {
   name: 'InstrumentListItem',
   props: {
     instrument: {
       type: Object,
       required: true
+    }
+  },
+  methods: {
+    remove () {
+      instrumentService.delete(this.instrument.id).then(this.$router.go())
     }
   }
 }

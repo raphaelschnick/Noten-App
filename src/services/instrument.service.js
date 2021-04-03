@@ -22,6 +22,32 @@ const instrumentService = {
       return null
     }
   },
+  async add (instrument) {
+    try {
+      const RAW_DATA = await httpClient.post(`${END_POINT}`, instrument)
+      return RAW_DATA.data
+    } catch (e) {
+      this.errorHandling(e)
+      return null
+    }
+  },
+  async update (instrument, id) {
+    try {
+      const RAW_DATA = await httpClient.put(`${END_POINT}/${id}`, instrument)
+      return RAW_DATA.data
+    } catch (e) {
+      this.errorHandling(e)
+      return null
+    }
+  },
+  async delete (id) {
+    try {
+      await httpClient.delete(`${END_POINT}/${id}`)
+    } catch (e) {
+      this.errorHandling(e)
+      return null
+    }
+  },
   errorHandling (e) {
     app.$bvToast.toast(e.message, {
       title: 'Error',

@@ -27,7 +27,14 @@ const routes = [
     path: "/pieces/add",
     name: "PieceAdd",
     component: () =>
-      import(/* webpackChunkName: "pieces" */ "../views/piece/Add.vue")
+      import(/* webpackChunkName: "pieces" */ "../views/piece/Form.vue")
+  },
+  {
+    path: "/pieces/:id/edit",
+    name: "PieceEdit",
+    component: () =>
+      import(/* webpackChunkName: "pieces" */ "../views/piece/Form.vue"),
+    props: true
   },
   {
     path: "/instruments",
@@ -46,7 +53,14 @@ const routes = [
     path: "/instruments/add",
     name: "InstrumentAdd",
     component: () =>
-      import(/* webpackChunkName: "Instruments" */ "../views/instrument/Add.vue")
+      import(/* webpackChunkName: "Instruments" */ "../views/instrument/Form.vue")
+  },
+  {
+    path: "/instruments/:id/edit",
+    name: "InstrumentEdit",
+    component: () =>
+      import(/* webpackChunkName: "pieces" */ "../views/instrument/Form.vue"),
+    props: true
   },
   {
     path: "/settings",

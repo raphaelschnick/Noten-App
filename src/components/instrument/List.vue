@@ -1,17 +1,16 @@
 <template>
-  <b-container>
-    <b-row>
-      <b-col
-        v-for="instrument in instrumentList"
-        :key="instrument.id"
-        class="col-lg-6 col-sm-12"
-      >
-        <b-card-group class="mb-3">
-          <instrument-list-item :instrument="instrument" />
-        </b-card-group>
-      </b-col>
-    </b-row>
-  </b-container>
+  <b-row>
+    <b-col
+      v-for="instrument in instrumentList"
+      :key="instrument.id"
+      cols="12"
+      class="col-lg-4"
+    >
+      <b-card-group class="mb-3">
+        <instrument-list-item :instrument="instrument" />
+      </b-card-group>
+    </b-col>
+  </b-row>
 </template>
 
 <script>

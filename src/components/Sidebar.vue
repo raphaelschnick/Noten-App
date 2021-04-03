@@ -16,7 +16,7 @@
 
       <div class="navi">
         <ul>
-          <li :class="{ 'active': active === 1 }">
+          <li :class="{ 'active': this.$route.path === '/'}">
             <router-link
               :to="{ name: 'Home' }"
               class="nav-item"
@@ -29,7 +29,7 @@
               <span class="hidden-xs hidden-sm">Home</span>
             </router-link>
           </li>
-          <li :class="{ 'active': active === 2 }">
+          <li :class="{ 'active': this.$route.path.startsWith('/pieces') }">
             <router-link
               :to="{ name: 'Pieces' }"
               class="nav-item"
@@ -42,7 +42,7 @@
               <span class="hidden-xs hidden-sm">Stücke</span>
             </router-link>
           </li>
-          <li :class="{ 'active': active === 3 }">
+          <li :class="{ 'active': this.$route.path.startsWith('/instruments') }">
             <router-link
               :to="{ name: 'Instruments' }"
               class="nav-item"
@@ -55,7 +55,7 @@
               <span class="hidden-xs hidden-sm">Instrumente</span>
             </router-link>
           </li>
-          <li :class="{ 'active': active === 4 }">
+          <li :class="{ 'active': this.$route.path.startsWith('/settings')}">
             <router-link
               :to="{ name: 'Settings' }"
               class="nav-item"
@@ -187,7 +187,7 @@
           </b-collapse>
         </b-container>
       </b-navbar>
-      <div class="ml-2">
+      <div class="ml-2 mr-2">
         <router-view />
       </div>
     </div>
@@ -387,6 +387,9 @@ a[data-toggle="collapse"] {
 .logo i {
   text-align: center;
   font-size: 4rem;
+}
+.logo:hover {
+  text-decoration: none;
 }
 a:focus,a:hover,a{
     outline:none;

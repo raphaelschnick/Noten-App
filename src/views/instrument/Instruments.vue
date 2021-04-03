@@ -1,11 +1,14 @@
 <template>
   <div class="instruments">
     <b-row>
-      <b-col cols="9">
+      <b-col>
         <h2>Instrumente</h2>
       </b-col>
       <b-col>
-        <b-button :to="{ name: 'InstrumentAdd' }">
+        <b-button
+          class="float-right"
+          :to="{ name: 'InstrumentAdd' }"
+        >
           Hinzufügen
         </b-button>
       </b-col>

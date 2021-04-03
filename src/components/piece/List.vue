@@ -1,17 +1,16 @@
 <template>
-  <b-container>
-    <b-row>
-      <b-col
-        v-for="piece in pieceList"
-        :key="piece.id"
-        class="col-lg-6 col-sm-12"
-      >
-        <b-card-group class="mb-3">
-          <piece-list-item :piece="piece" />
-        </b-card-group>
-      </b-col>
-    </b-row>
-  </b-container>
+  <b-row>
+    <b-col
+      v-for="piece in pieceList"
+      :key="piece.id"
+      cols="12"
+      class="col-lg-4"
+    >
+      <b-card-group class="mb-3">
+        <piece-list-item :piece="piece" />
+      </b-card-group>
+    </b-col>
+  </b-row>
 </template>
 
 <script>
