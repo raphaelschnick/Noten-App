@@ -6,9 +6,7 @@
       cols="12"
       class="col-lg-4"
     >
-      <b-card-group class="mb-3">
-        <piece-list-item :piece="piece" />
-      </b-card-group>
+      <piece-list-item :piece="piece" />
     </b-col>
   </b-row>
 </template>

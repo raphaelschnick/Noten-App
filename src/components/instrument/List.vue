@@ -6,9 +6,7 @@
       cols="12"
       class="col-lg-4"
     >
-      <b-card-group class="mb-3">
-        <instrument-list-item :instrument="instrument" />
-      </b-card-group>
+      <instrument-list-item :instrument="instrument" />
     </b-col>
   </b-row>
 </template>

@@ -1,34 +1,77 @@
 <template>
-  <b-card>
-    <b-card-title>
-      {{ piece.name }}
-      <b-dropdown
-        class="float-right"
-        variant="link"
-        toggle-class="text-decoration-none"
-        no-caret
-      >
-        <template #button-content>
-          <i
-            style="color: #312F2F"
-            class="fas fa-ellipsis-v"
-          />
-        </template>
-        <b-dropdown-item :to="{ name: 'PieceEdit', params: {id: piece.id } }">
-          <i class="fas fa-edit" /> Bearbeiten
-        </b-dropdown-item>
-        <b-dropdown-item @click="remove">
-          <i class="fas fa-trash-alt" /> Löschen
-        </b-dropdown-item>
-      </b-dropdown>
-    </b-card-title>
-    <b-button
-      :to="{ name: 'PieceDetail', params: {id: piece.id}}"
-      variant="primary"
+  <div>
+    <vs-card type="5">
+      <template #title>
+        <h3>{{ piece.name }}</h3>
+      </template>
+      <template #img>
+        <img src="@/assets/avatar.jpg">
+      </template>
+      <template #text>
+        <b-row>
+          <b-col cols="3">
+            <vs-button :to="{ name: 'PieceDetail', params: {id: piece.id}}">
+              Details
+            </vs-button>
+          </b-col>
+          <b-col cols="4">
+            <vs-button
+              success
+              :to="{ name: 'PieceEdit', params: {id: piece.id } }"
+            >
+              Bearbeiten
+            </vs-button>
+          </b-col>
+          <b-col cols="3">
+            <vs-button
+              danger
+              @click="active=!active"
+            >
+              Löschen
+            </vs-button>
+          </b-col>
+        </b-row>
+      </template>
+      <template #interactions>
+        <vs-button
+          danger
+          icon
+        >
+          <i class="far fa-star" />
+        </vs-button>
+      </template>
+    </vs-card>
+    <vs-dialog
+      v-model="active"
+      width="550px"
+      not-center
     >
-      Details
-    </b-button>
-  </b-card>
+      <template #header>
+        <h4 class="not-margin">
+          <b>{{ piece.name }}</b> wirklich löschen?
+        </h4>
+      </template>
+      <b-row>
+        <b-col cols="2">
+          <vs-button
+            danger
+            @click="active=false, remove()"
+          >
+            Löschen
+          </vs-button>
+        </b-col>
+        <b-col>
+          <vs-button
+            dark
+            transparent
+            @click="active=false"
+          >
+            Abbrechen
+          </vs-button>
+        </b-col>
+      </b-row>
+    </vs-dialog>
+  </div>
 </template>
 
 <script>
@@ -39,6 +82,11 @@ export default {
     piece: {
       type: Object,
       required: true
+    }
+  },
+  data () {
+    return {
+      active: false
     }
   },
   methods: {
