@@ -1,5 +1,7 @@
 # noten-app
 
+![](https://img.shields.io/tokei/lines/github/raphaelschnick/Noten-App?style=flat-square)
+
 ## Project setup
 ```
 npm install
